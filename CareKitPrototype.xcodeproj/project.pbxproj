@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282C2C681CD8FC84003FF1A7 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289491611CD8FAB600690A16 /* CareKit.framework */; };
+		282C2C691CD8FC85003FF1A7 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 289491611CD8FAB600690A16 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		283F08851CD7E5FA00EF50D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */; };
 		283F08871CD7E5FA00EF50D3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08861CD7E5FA00EF50D3 /* FirstViewController.swift */; };
 		283F08891CD7E5FA00EF50D3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08881CD7E5FA00EF50D3 /* SecondViewController.swift */; };
@@ -15,9 +17,17 @@
 		283F08911CD7E5FA00EF50D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283F088F1CD7E5FA00EF50D3 /* LaunchScreen.storyboard */; };
 		283F089C1CD7E5FA00EF50D3 /* CareKitPrototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F089B1CD7E5FA00EF50D3 /* CareKitPrototypeTests.swift */; };
 		283F08A71CD7E5FA00EF50D3 /* CareKitPrototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08A61CD7E5FA00EF50D3 /* CareKitPrototypeUITests.swift */; };
+		2894914F1CD8F86200690A16 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2894914E1CD8F86200690A16 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		282C2C6A1CD8FC85003FF1A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
 		283F08981CD7E5FA00EF50D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 283F08791CD7E5FA00EF50D3 /* Project object */;
@@ -32,7 +42,35 @@
 			remoteGlobalIDString = 283F08801CD7E5FA00EF50D3;
 			remoteInfo = CareKitPrototype;
 		};
+		289491601CD8FAB600690A16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
+		289491621CD8FAB600690A16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
+			remoteInfo = CareKitTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		282C2C6C1CD8FC85003FF1A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				282C2C691CD8FC85003FF1A7 /* CareKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		283F08811CD7E5FA00EF50D3 /* CareKitPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareKitPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +87,8 @@
 		283F08A21CD7E5FA00EF50D3 /* CareKitPrototypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareKitPrototypeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		283F08A61CD7E5FA00EF50D3 /* CareKitPrototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareKitPrototypeUITests.swift; sourceTree = "<group>"; };
 		283F08A81CD7E5FA00EF50D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2894914E1CD8F86200690A16 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = Vendor/carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282C2C681CD8FC84003FF1A7 /* CareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +120,7 @@
 		283F08781CD7E5FA00EF50D3 = {
 			isa = PBXGroup;
 			children = (
+				2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */,
 				283F08831CD7E5FA00EF50D3 /* CareKitPrototype */,
 				283F089A1CD7E5FA00EF50D3 /* CareKitPrototypeTests */,
 				283F08A51CD7E5FA00EF50D3 /* CareKitPrototypeUITests */,
@@ -100,12 +142,13 @@
 			isa = PBXGroup;
 			children = (
 				283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */,
+				2894914E1CD8F86200690A16 /* RootViewController.swift */,
 				283F08861CD7E5FA00EF50D3 /* FirstViewController.swift */,
+				283F08921CD7E5FA00EF50D3 /* Info.plist */,
 				283F08881CD7E5FA00EF50D3 /* SecondViewController.swift */,
 				283F088A1CD7E5FA00EF50D3 /* Main.storyboard */,
 				283F088D1CD7E5FA00EF50D3 /* Assets.xcassets */,
 				283F088F1CD7E5FA00EF50D3 /* LaunchScreen.storyboard */,
-				283F08921CD7E5FA00EF50D3 /* Info.plist */,
 			);
 			path = CareKitPrototype;
 			sourceTree = "<group>";
@@ -128,6 +171,15 @@
 			path = CareKitPrototypeUITests;
 			sourceTree = "<group>";
 		};
+		2894915B1CD8FAB600690A16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				289491611CD8FAB600690A16 /* CareKit.framework */,
+				289491631CD8FAB600690A16 /* CareKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +190,12 @@
 				283F087D1CD7E5FA00EF50D3 /* Sources */,
 				283F087E1CD7E5FA00EF50D3 /* Frameworks */,
 				283F087F1CD7E5FA00EF50D3 /* Resources */,
+				282C2C6C1CD8FC85003FF1A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				282C2C6B1CD8FC85003FF1A7 /* PBXTargetDependency */,
 			);
 			name = CareKitPrototype;
 			productName = CareKitPrototype;
@@ -218,6 +272,12 @@
 			mainGroup = 283F08781CD7E5FA00EF50D3;
 			productRefGroup = 283F08821CD7E5FA00EF50D3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2894915B1CD8FAB600690A16 /* Products */;
+					ProjectRef = 2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				283F08801CD7E5FA00EF50D3 /* CareKitPrototype */,
@@ -226,6 +286,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		289491611CD8FAB600690A16 /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = 289491601CD8FAB600690A16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		289491631CD8FAB600690A16 /* CareKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CareKitTests.xctest;
+			remoteRef = 289491621CD8FAB600690A16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		283F087F1CD7E5FA00EF50D3 /* Resources */ = {
@@ -261,6 +338,7 @@
 			files = (
 				283F08891CD7E5FA00EF50D3 /* SecondViewController.swift in Sources */,
 				283F08851CD7E5FA00EF50D3 /* AppDelegate.swift in Sources */,
+				2894914F1CD8F86200690A16 /* RootViewController.swift in Sources */,
 				283F08871CD7E5FA00EF50D3 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +362,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		282C2C6B1CD8FC85003FF1A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CareKit;
+			targetProxy = 282C2C6A1CD8FC85003FF1A7 /* PBXContainerItemProxy */;
+		};
 		283F08991CD7E5FA00EF50D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 283F08801CD7E5FA00EF50D3 /* CareKitPrototype */;
@@ -486,6 +569,7 @@
 				283F08AD1CD7E5FA00EF50D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		283F08AE1CD7E5FA00EF50D3 /* Build configuration list for PBXNativeTarget "CareKitPrototypeTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +578,7 @@
 				283F08B01CD7E5FA00EF50D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		283F08B11CD7E5FA00EF50D3 /* Build configuration list for PBXNativeTarget "CareKitPrototypeUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +587,7 @@
 				283F08B31CD7E5FA00EF50D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
