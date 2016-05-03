@@ -24,6 +24,13 @@ class RootViewController: UITabBarController {
         ]
     }
 
+    func showTreatments() {
+        let treatmentsVC = TreatmentsViewController()
+        treatmentsVC.title = "Treatments"
+        let navigationVC = UINavigationController(rootViewController: treatmentsVC)
+        self.presentViewController(navigationVC, animated: true, completion: nil)
+    }
+
     private func createCarePlanStore() -> OCKCarePlanStore {
         let persistenceDirectoryURL = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0])
 
@@ -38,7 +45,9 @@ class RootViewController: UITabBarController {
         let viewController = OCKCareCardViewController(carePlanStore: store!)
         viewController.title = NSLocalizedString("Care Card", comment: "")
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "first"), selectedImage: UIImage(named: "first"))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "showTreatments")
         return viewController
+
     }
 
     private func createSymptomTrackerViewController() -> OCKSymptomTrackerViewController {
@@ -55,7 +64,7 @@ class RootViewController: UITabBarController {
                 "baclofen",
                 groupIdentifier: nil,
                 title: NSLocalizedString("Baclofen", comment: ""),
-                text: NSLocalizedString("2 mg", comment: ""),
+                text: NSLocalizedString("20 mg, twice a day", comment: ""),
                 tintColor: UIColor(red: 0x9B / 255.0, green: 0x59 / 255.0, blue: 0xB6 / 255.0, alpha: 1.0),
                 instructions: NSLocalizedString("Take 2 mg baclofen", comment: ""),
                 imageURL: nil,

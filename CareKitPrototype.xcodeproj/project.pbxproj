@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		282C2C681CD8FC84003FF1A7 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289491611CD8FAB600690A16 /* CareKit.framework */; };
 		282C2C691CD8FC85003FF1A7 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 289491611CD8FAB600690A16 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		282C2C711CD93627003FF1A7 /* TreatmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C2C701CD93627003FF1A7 /* TreatmentsViewController.swift */; };
 		283F08851CD7E5FA00EF50D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */; };
 		283F088C1CD7E5FA00EF50D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283F088A1CD7E5FA00EF50D3 /* Main.storyboard */; };
 		283F088E1CD7E5FA00EF50D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283F088D1CD7E5FA00EF50D3 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		282C2C701CD93627003FF1A7 /* TreatmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreatmentsViewController.swift; sourceTree = "<group>"; };
 		283F08811CD7E5FA00EF50D3 /* CareKitPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareKitPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283F088B1CD7E5FA00EF50D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */,
 				2894914E1CD8F86200690A16 /* RootViewController.swift */,
+				282C2C701CD93627003FF1A7 /* TreatmentsViewController.swift */,
 				283F08921CD7E5FA00EF50D3 /* Info.plist */,
 				283F088A1CD7E5FA00EF50D3 /* Main.storyboard */,
 				283F088D1CD7E5FA00EF50D3 /* Assets.xcassets */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				283F08851CD7E5FA00EF50D3 /* AppDelegate.swift in Sources */,
+				282C2C711CD93627003FF1A7 /* TreatmentsViewController.swift in Sources */,
 				2894914F1CD8F86200690A16 /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
