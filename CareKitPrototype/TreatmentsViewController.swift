@@ -9,24 +9,17 @@
 import UIKit
 
 class TreatmentsViewController: UITableViewController {
-    var treatments: [String] = []
+    var treatments: [String] = ["Advil", "Baclofen", "Duolexitine"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "TreatmentCell")
-
-        treatments = [
-            "Advil",
-            "Baclofen",
-            "Duolexitine",
-        ]
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return treatments.count
@@ -40,5 +33,10 @@ class TreatmentsViewController: UITableViewController {
         cell.textLabel!.text = treatment
         cell.accessoryType = .Checkmark
         return cell
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TreatmentDosageViewController") as! TreatmentDosageViewController
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 }
