@@ -16,6 +16,7 @@ class RootViewController: UITabBarController {
         super.init(coder: aDecoder)
 
         self.store = self.createCarePlanStore()
+        self.createCarePlanActivities(store!)
 
         self.viewControllers = [
             UINavigationController(rootViewController: createCareCardViewController()),
@@ -46,5 +47,29 @@ class RootViewController: UITabBarController {
         viewController.title = NSLocalizedString("Symptom Tracker", comment: "")
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "second"), selectedImage: UIImage(named: "second"))
         return viewController
+    }
+
+    private func createCarePlanActivities(carePlanStore: OCKCarePlanStore) {
+        let activities = [
+            OCKCarePlanActivity.interventionWithIdentifier(
+                "baclofen",
+                groupIdentifier: nil,
+                title: NSLocalizedString("Baclofen", comment: ""),
+                text: NSLocalizedString("2 mg", comment: ""),
+                tintColor: UIColor(red: 0x9B / 255.0, green: 0x59 / 255.0, blue: 0xB6 / 255.0, alpha: 1.0),
+                instructions: NSLocalizedString("Take 2 mg baclofen", comment: ""),
+                imageURL: nil,
+                schedule: OCKCareSchedule.weeklyScheduleWithStartDate(NSDateComponents(year: 2016, month: 01, day: 01), occurrencesOnEachDay: [2, 4, 2, 4, 2, 4, 2]),
+                userInfo: nil
+            )
+        ]
+
+        for activity in activities {
+            carePlanStore.addActivity(activity) { success, error in
+                if !success {
+                    print(error?.localizedDescription)
+                }
+            }
+        }
     }
 }
