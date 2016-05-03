@@ -10,7 +10,8 @@ import UIKit
 
 class TreatmentDosageViewController: UIViewController {
     let picker = UIPickerView()
-    let pickerRows = ["20 mg", "30 mg", "40 mg"]
+    let countOptions = (1...10).map { "\($0)" }
+    let dosageOptions = ["20 mg capsule", "100 mg pill"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +24,30 @@ class TreatmentDosageViewController: UIViewController {
 
 extension TreatmentDosageViewController: UIPickerViewDataSource {
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerRows.count
+        switch component {
+        case 0:
+            return countOptions.count
+        case 1:
+            return dosageOptions.count
+        default:
+            return 0
+        }
     }
 }
 
 extension TreatmentDosageViewController: UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerRows[row]
+        switch component {
+        case 0:
+            return countOptions[row]
+        case 1:
+            return dosageOptions[row]
+        default:
+            return nil
+        }
     }
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
