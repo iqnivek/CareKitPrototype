@@ -10,20 +10,17 @@ import UIKit
 import CareKit
 
 class RootViewController: UITabBarController {
+    private var store: OCKCarePlanStore? = nil
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        self.viewControllers = [
-            UINavigationController(rootViewController: createCareCardViewController())
-        ]
-    }
+        self.store = self.createCarePlanStore()
 
-    private func createCareCardViewController() -> OCKCareCardViewController {
-        let viewController = OCKCareCardViewController(carePlanStore: createCarePlanStore())
-        viewController.title = NSLocalizedString("Care Card", comment: "")
-        viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "first"), selectedImage: UIImage(named: "first"))
-        return viewController
+        self.viewControllers = [
+            UINavigationController(rootViewController: createCareCardViewController()),
+            UINavigationController(rootViewController: createSymptomTrackerViewController())
+        ]
     }
 
     private func createCarePlanStore() -> OCKCarePlanStore {
@@ -34,5 +31,20 @@ class RootViewController: UITabBarController {
         }
 
         return OCKCarePlanStore(persistenceDirectoryURL: persistenceDirectoryURL)
+    }
+
+    private func createCareCardViewController() -> OCKCareCardViewController {
+        let viewController = OCKCareCardViewController(carePlanStore: store!)
+        viewController.title = NSLocalizedString("Care Card", comment: "")
+        viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "first"), selectedImage: UIImage(named: "first"))
+        return viewController
+    }
+
+    private func createSymptomTrackerViewController() -> OCKSymptomTrackerViewController {
+        let viewController = OCKSymptomTrackerViewController(carePlanStore: store!)
+        // viewController.delegate = self
+        viewController.title = NSLocalizedString("Symptom Tracker", comment: "")
+        viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "second"), selectedImage: UIImage(named: "second"))
+        return viewController
     }
 }
