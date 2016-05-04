@@ -6,19 +6,38 @@
 //  Copyright © 2016 PatientsLikeMe. All rights reserved.
 //
 
+import RealmSwift
 import UIKit
 
 class TreatmentsViewController: UITableViewController {
-    var treatments: [[String: AnyObject?]] = [
-        ["name": "Advil", "dosage": Dosage(counts: (1...10).map { "\($0)" }, dosages: ["20 mg capsule", "100 mg pill"], schedules: ["Once a day", "Twice a day", "Three times a day"])],
-        ["name": "Baclofen", "dosage": Dosage(counts: (1...10).map { "\($0)" }, dosages: ["20 mg capsule", "100 mg pill"], schedules: ["Once a day", "Twice a day", "Three times a day"])],
-        ["name": "Duolexitine", "dosage": Dosage(counts: (1...10).map { "\($0)" }, dosages: ["20 mg capsule", "100 mg pill"], schedules: ["Once a day", "Twice a day", "Three times a day"])],
-    ]
+    let realm = try! Realm()
+
+    var treatments: [Treatment] {
+        get {
+            return Array(realm.objects(Treatment))
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "TreatmentCell")
+
+        // TODO extract into data loading process
+        let t1 = Treatment(value: [
+            "name": "Baclofen"
+        ])
+        let d1 = Dosage(value: [
+            "counts": (1...10).map { ["label": "\($0)"] },
+            "types": [["label": "20 mg capsule"], ["label": "100 mg pill"]],
+            "schedules": [["label": "Once a day"], ["label": "Twice a day"], ["label": "Three times a day"]]
+        ])
+        d1.treatment = t1
+
+        realm.beginWrite()
+        realm.add(t1)
+        realm.add(d1)
+        try! realm.commitWrite()
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -34,7 +53,7 @@ class TreatmentsViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("TreatmentCell")! as UITableViewCell
 
-        cell.textLabel!.text = treatment["name"] as? String
+        cell.textLabel!.text = treatment.name
         cell.accessoryType = .Checkmark
         return cell
     }
@@ -42,7 +61,7 @@ class TreatmentsViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TreatmentDosageViewController") as! TreatmentDosageViewController
         vc.title = "Dosage"
-        vc.dosage = treatments[indexPath.row]["dosage"] as? Dosage
+        vc.dosage = realm.objects(Dosage).filter("treatment == %@", treatments[indexPath.row]).first!
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

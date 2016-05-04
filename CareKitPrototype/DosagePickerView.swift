@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DosagePickerView: UIView {
     var dosage: Dosage
@@ -41,7 +42,7 @@ extension DosagePickerView: UIPickerViewDataSource {
         case 0:
             return dosage.counts.count
         case 1:
-            return dosage.dosages.count
+            return dosage.types.count
         default:
             return 0
         }
@@ -52,9 +53,9 @@ extension DosagePickerView: UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return dosage.counts[row]
+            return dosage.counts[row].label
         case 1:
-            return dosage.dosages[row]
+            return dosage.types[row].label
         default:
             return nil
         }

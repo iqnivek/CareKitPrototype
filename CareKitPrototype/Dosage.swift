@@ -7,19 +7,28 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Dosage {
-    var counts: [String]
-    var dosages: [String]
-    var schedules: [String]
+class DosageCount: Object {
+    dynamic var label: String = ""
+}
 
-    var selectedCount: Int = 0
-    var selectedDosage: Int = 0
-    var selectedSchedule: Int = 0
+class DosageType: Object {
+    dynamic var label: String = ""
+}
 
-    init(counts: [String] = [], dosages: [String] = [], schedules: [String] = []) {
-        self.counts = counts
-        self.dosages = dosages
-        self.schedules = schedules
-    }
+class DosageSchedule: Object {
+    dynamic var label: String = ""
+}
+
+class Dosage: Object {
+    dynamic var treatment: Treatment?
+
+    let counts = List<DosageCount>()
+    let types = List<DosageType>()
+    let schedules = List<DosageSchedule>()
+
+    dynamic var selectedCount: Int = 0
+    dynamic var selectedDosage: Int = 0
+    dynamic var selectedSchedule: Int = 0
 }

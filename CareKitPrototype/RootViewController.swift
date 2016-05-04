@@ -45,7 +45,7 @@ class RootViewController: UITabBarController {
         let viewController = OCKCareCardViewController(carePlanStore: store!)
         viewController.title = NSLocalizedString("Care Card", comment: "")
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "first"), selectedImage: UIImage(named: "first"))
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "showTreatments")
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: #selector(RootViewController.showTreatments))
         return viewController
 
     }
