@@ -9,7 +9,11 @@
 import UIKit
 
 class TreatmentsViewController: UITableViewController {
-    var treatments: [String] = ["Advil", "Baclofen", "Duolexitine"]
+    var treatments: [[String: AnyObject?]] = [
+        ["name": "Advil", "dosage": Dosage(counts: (1...10).map { "\($0)" }, dosages: ["20 mg capsule", "100 mg pill"], schedules: ["Once a day", "Twice a day", "Three times a day"])],
+        ["name": "Baclofen", "dosage": Dosage(counts: (1...10).map { "\($0)" }, dosages: ["20 mg capsule", "100 mg pill"], schedules: ["Once a day", "Twice a day", "Three times a day"])],
+        ["name": "Duolexitine", "dosage": Dosage(counts: (1...10).map { "\($0)" }, dosages: ["20 mg capsule", "100 mg pill"], schedules: ["Once a day", "Twice a day", "Three times a day"])],
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,7 @@ class TreatmentsViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("TreatmentCell")! as UITableViewCell
 
-        cell.textLabel!.text = treatment
+        cell.textLabel!.text = treatment["name"] as? String
         cell.accessoryType = .Checkmark
         return cell
     }
@@ -38,6 +42,7 @@ class TreatmentsViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TreatmentDosageViewController") as! TreatmentDosageViewController
         vc.title = "Dosage"
+        vc.dosage = treatments[indexPath.row]["dosage"] as? Dosage
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "dismissDosageView")
         self.navigationController?.pushViewController(vc, animated: true)
     }
