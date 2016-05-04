@@ -14,6 +14,10 @@
 		282C2C751CD95531003FF1A7 /* DosagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C2C741CD95531003FF1A7 /* DosagePickerView.swift */; };
 		282C5A791CDA4ED300D95C10 /* DosageScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */; };
 		282C5A811CDA78A300D95C10 /* Dosage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C5A801CDA78A300D95C10 /* Dosage.swift */; };
+		282C5A841CDA883200D95C10 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282C5A821CDA883200D95C10 /* Realm.framework */; };
+		282C5A851CDA883200D95C10 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 282C5A821CDA883200D95C10 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		282C5A861CDA883200D95C10 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282C5A831CDA883200D95C10 /* RealmSwift.framework */; };
+		282C5A871CDA883200D95C10 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 282C5A831CDA883200D95C10 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		283F08851CD7E5FA00EF50D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */; };
 		283F088C1CD7E5FA00EF50D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283F088A1CD7E5FA00EF50D3 /* Main.storyboard */; };
 		283F088E1CD7E5FA00EF50D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283F088D1CD7E5FA00EF50D3 /* Assets.xcassets */; };
@@ -68,7 +72,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				282C5A851CDA883200D95C10 /* Realm.framework in Embed Frameworks */,
 				282C2C691CD8FC85003FF1A7 /* CareKit.framework in Embed Frameworks */,
+				282C5A871CDA883200D95C10 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +87,8 @@
 		282C2C741CD95531003FF1A7 /* DosagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosagePickerView.swift; sourceTree = "<group>"; };
 		282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosageScheduleView.swift; sourceTree = "<group>"; };
 		282C5A801CDA78A300D95C10 /* Dosage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dosage.swift; sourceTree = "<group>"; };
+		282C5A821CDA883200D95C10 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		282C5A831CDA883200D95C10 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		283F08811CD7E5FA00EF50D3 /* CareKitPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareKitPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283F088B1CD7E5FA00EF50D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,7 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282C5A841CDA883200D95C10 /* Realm.framework in Frameworks */,
 				282C2C681CD8FC84003FF1A7 /* CareKit.framework in Frameworks */,
+				282C5A861CDA883200D95C10 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +148,8 @@
 		283F08781CD7E5FA00EF50D3 = {
 			isa = PBXGroup;
 			children = (
+				282C5A821CDA883200D95C10 /* Realm.framework */,
+				282C5A831CDA883200D95C10 /* RealmSwift.framework */,
 				2894915A1CD8FAB600690A16 /* CareKit.xcodeproj */,
 				283F08831CD7E5FA00EF50D3 /* CareKitPrototype */,
 				283F089A1CD7E5FA00EF50D3 /* CareKitPrototypeTests */,
@@ -504,6 +516,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CareKitPrototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patientslikeme.CareKitPrototype.CareKitPrototype;
@@ -515,6 +531,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CareKitPrototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patientslikeme.CareKitPrototype.CareKitPrototype;
