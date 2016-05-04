@@ -9,16 +9,23 @@
 import UIKit
 
 class DosageScheduleView: UIView {
-    let options = ["Once a day", "Twice a day", "Three times a day"]
+    var dosage: Dosage
 
     let picker = UIPickerView()
 
     override init(frame: CGRect) {
+        dosage = Dosage()
         super.init(frame: frame)
 
         picker.dataSource = self
         picker.delegate = self
         self.addSubview(picker)
+    }
+
+    convenience init(frame: CGRect, dosage: Dosage) {
+        self.init(frame: frame)
+
+        self.dosage = dosage
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,16 +38,16 @@ extension DosageScheduleView: UIPickerViewDataSource {
         return 1
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return options.count
+        return dosage.schedules.count
     }
 }
 
 extension DosageScheduleView: UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return options[row]
+        return dosage.schedules[row]
     }
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // TODO
+        self.dosage.selectedSchedule = row
     }
 }

@@ -9,17 +9,22 @@
 import UIKit
 
 class DosagePickerView: UIView {
-    let countOptions = (1...10).map { "\($0)" }
-    let dosageOptions = ["20 mg capsule", "100 mg pill"]
-
+    var dosage: Dosage
     let picker = UIPickerView()
 
     override init(frame: CGRect) {
+        dosage = Dosage()
         super.init(frame: frame)
 
         picker.dataSource = self
         picker.delegate = self
         self.addSubview(picker)
+    }
+
+    convenience init(frame: CGRect, dosage: Dosage) {
+        self.init(frame: frame)
+
+        self.dosage = dosage
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,9 +39,9 @@ extension DosagePickerView: UIPickerViewDataSource {
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return countOptions.count
+            return dosage.counts.count
         case 1:
-            return dosageOptions.count
+            return dosage.dosages.count
         default:
             return 0
         }
@@ -47,15 +52,22 @@ extension DosagePickerView: UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return countOptions[row]
+            return dosage.counts[row]
         case 1:
-            return dosageOptions[row]
+            return dosage.dosages[row]
         default:
             return nil
         }
     }
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // TODO
+        switch component {
+        case 0:
+            dosage.selectedCount = row
+        case 1:
+            dosage.selectedDosage = row
+        default:
+            break
+        }
     }
 }

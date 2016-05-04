@@ -13,6 +13,7 @@
 		282C2C731CD94D65003FF1A7 /* TreatmentDosageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C2C721CD94D65003FF1A7 /* TreatmentDosageViewController.swift */; };
 		282C2C751CD95531003FF1A7 /* DosagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C2C741CD95531003FF1A7 /* DosagePickerView.swift */; };
 		282C5A791CDA4ED300D95C10 /* DosageScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */; };
+		282C5A811CDA78A300D95C10 /* Dosage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282C5A801CDA78A300D95C10 /* Dosage.swift */; };
 		283F08851CD7E5FA00EF50D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */; };
 		283F088C1CD7E5FA00EF50D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283F088A1CD7E5FA00EF50D3 /* Main.storyboard */; };
 		283F088E1CD7E5FA00EF50D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283F088D1CD7E5FA00EF50D3 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		282C2C721CD94D65003FF1A7 /* TreatmentDosageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreatmentDosageViewController.swift; sourceTree = "<group>"; };
 		282C2C741CD95531003FF1A7 /* DosagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosagePickerView.swift; sourceTree = "<group>"; };
 		282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosageScheduleView.swift; sourceTree = "<group>"; };
+		282C5A801CDA78A300D95C10 /* Dosage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dosage.swift; sourceTree = "<group>"; };
 		283F08811CD7E5FA00EF50D3 /* CareKitPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareKitPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283F088B1CD7E5FA00EF50D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				282C2C721CD94D65003FF1A7 /* TreatmentDosageViewController.swift */,
 				282C2C741CD95531003FF1A7 /* DosagePickerView.swift */,
 				282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */,
+				282C5A801CDA78A300D95C10 /* Dosage.swift */,
 			);
 			name = Treatments;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				282C2C711CD93627003FF1A7 /* TreatmentsViewController.swift in Sources */,
 				282C5A791CDA4ED300D95C10 /* DosageScheduleView.swift in Sources */,
 				2894914F1CD8F86200690A16 /* RootViewController.swift in Sources */,
+				282C5A811CDA78A300D95C10 /* Dosage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
