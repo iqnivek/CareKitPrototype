@@ -37,6 +37,12 @@ class TreatmentsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TreatmentDosageViewController") as! TreatmentDosageViewController
-        self.presentViewController(vc, animated: true, completion: nil)
+        vc.title = "Dosage"
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "dismissDosageView")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func dismissDosageView() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
