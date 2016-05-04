@@ -121,6 +121,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		282C5A7E1CDA530600D95C10 /* Treatments */ = {
+			isa = PBXGroup;
+			children = (
+				282C2C701CD93627003FF1A7 /* TreatmentsViewController.swift */,
+				282C2C721CD94D65003FF1A7 /* TreatmentDosageViewController.swift */,
+				282C2C741CD95531003FF1A7 /* DosagePickerView.swift */,
+				282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */,
+			);
+			name = Treatments;
+			sourceTree = "<group>";
+		};
 		283F08781CD7E5FA00EF50D3 = {
 			isa = PBXGroup;
 			children = (
@@ -147,10 +158,7 @@
 			children = (
 				283F08841CD7E5FA00EF50D3 /* AppDelegate.swift */,
 				2894914E1CD8F86200690A16 /* RootViewController.swift */,
-				282C2C701CD93627003FF1A7 /* TreatmentsViewController.swift */,
-				282C2C721CD94D65003FF1A7 /* TreatmentDosageViewController.swift */,
-				282C2C741CD95531003FF1A7 /* DosagePickerView.swift */,
-				282C5A781CDA4ED300D95C10 /* DosageScheduleView.swift */,
+				282C5A7E1CDA530600D95C10 /* Treatments */,
 				283F08921CD7E5FA00EF50D3 /* Info.plist */,
 				283F088A1CD7E5FA00EF50D3 /* Main.storyboard */,
 				283F088D1CD7E5FA00EF50D3 /* Assets.xcassets */,
