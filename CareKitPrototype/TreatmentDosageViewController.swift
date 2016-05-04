@@ -14,10 +14,16 @@ class TreatmentDosageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(TreatmentDosageViewController.dismissDosageView))
+
         let dosagePicker = DosagePickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2), dosage: dosage!)
         let dosageSchedule = DosageScheduleView(frame: CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: view.frame.height / 2), dosage: dosage!)
 
         view.addSubview(dosagePicker)
         view.addSubview(dosageSchedule)
+    }
+
+    func dismissDosageView() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }

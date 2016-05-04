@@ -43,11 +43,7 @@ class TreatmentsViewController: UITableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TreatmentDosageViewController") as! TreatmentDosageViewController
         vc.title = "Dosage"
         vc.dosage = treatments[indexPath.row]["dosage"] as? Dosage
-        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "dismissDosageView")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    func dismissDosageView() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
 }
