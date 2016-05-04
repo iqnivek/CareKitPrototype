@@ -10,7 +10,9 @@ import UIKit
 import RealmSwift
 
 class DosagePickerView: UIView {
+    let realm = try! Realm()
     var dosage: Dosage
+
     let picker = UIPickerView()
 
     override init(frame: CGRect) {
@@ -19,6 +21,8 @@ class DosagePickerView: UIView {
 
         picker.dataSource = self
         picker.delegate = self
+        picker.selectRow(dosage.selectedCount, inComponent: 0, animated: false)
+        picker.selectRow(dosage.selectedDosage, inComponent: 1, animated: false)
         self.addSubview(picker)
     }
 
@@ -62,6 +66,7 @@ extension DosagePickerView: UIPickerViewDelegate {
     }
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        realm.beginWrite()
         switch component {
         case 0:
             dosage.selectedCount = row
@@ -70,5 +75,6 @@ extension DosagePickerView: UIPickerViewDelegate {
         default:
             break
         }
+        try! realm.commitWrite()
     }
 }

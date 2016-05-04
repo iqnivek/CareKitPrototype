@@ -21,6 +21,7 @@ class TreatmentsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismissTreatments")
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "TreatmentCell")
 
         // TODO extract into data loading process
@@ -38,6 +39,10 @@ class TreatmentsViewController: UITableViewController {
         realm.add(t1)
         realm.add(d1)
         try! realm.commitWrite()
+    }
+
+    func dismissTreatments() {
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,7 +66,7 @@ class TreatmentsViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TreatmentDosageViewController") as! TreatmentDosageViewController
         vc.title = "Dosage"
-        vc.dosage = realm.objects(Dosage).filter("treatment == %@", treatments[indexPath.row]).first!
+        vc.treatment = treatments[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
